@@ -26,15 +26,16 @@ module downcounter_4bit_tb(
     reg clk,rst;
         wire [3:0] y;
         
-        upcounter_4bit dut (.y(y),.clk(clk), .rst(rst) );
-        initial begin 
-            #1clk = 0;
-            rst = 1;
-            
-            #1 rst = 0;
-        end
-        
-        always #2 clk = ~clk;
+        downcounter_4bit dut (.y(y),.clk(clk), .rst(rst) );
+        initial begin
+                clk = 0;
+                forever #2 clk = ~clk; 
+            end
+            initial begin
+                rst = 1;
+                #5;          
+                rst = 0;
+            end
         
         initial $monitor("Time = [%0d], Count = %d", $time, y);
         

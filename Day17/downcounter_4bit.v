@@ -29,7 +29,7 @@ module downcounter_4bit(
         always @(posedge clk or posedge rst) begin
             if(rst) begin count<=4'b1111; end
             else begin
-                count<=count+1'b1;
+                count<=count-1'b1;
                 end
                 
          end
