@@ -23,17 +23,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 module carry_look_ahead_adder_tb_v;
-
-	// Inputs
 	reg [3:0] a;
 	reg [3:0] b;
 	reg cin;
-
-	// Outputs
 	wire [3:0] sum;
 	wire cout;
 
-	// Instantiate the Unit Under Test (UUT)
 	carry_look_ahead_adder uut (
 		.sum(sum), 
 		.cout(cout), 
@@ -43,21 +38,17 @@ module carry_look_ahead_adder_tb_v;
 	);
 
 	initial begin
-		// Initialize Inputs
 		a = 4'b0010;
 		b = 4'b0101;
 		cin = 1;
 
-		// Wait 100 ns for global reset to finish
 		#10 a=4'b1010;
 		b=4'b1111;
 		cin=0;
-        
-		// Add stimulus here
 
 	end
 	initial $monitor("a=%b  ,b=%b  ,cin=%b  ,sum=%b  ,cout=%b",a,b,cin,sum,cout);
-	initial#20 $finish;
+	initial #20 $finish;
       
 endmodule
 

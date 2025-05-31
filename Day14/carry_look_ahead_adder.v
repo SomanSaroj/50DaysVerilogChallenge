@@ -41,6 +41,5 @@ module carry_look_ahead_adder(sum, cout, a, b, cin);
 	 xor g4(sum[1],p[1],c[0]);
 	 xor g5(sum[2],p[2],c[1]);
 	 xor g6(sum[3],p[3],c[2]);
-	 
 
 endmodule
